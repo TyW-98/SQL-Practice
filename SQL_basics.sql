@@ -93,3 +93,15 @@ SELECT name, area FROM cities WHERE name NOT IN ('Delhi') AND area > 6000;
 /* Multiple condition filtering, only one condition must be true */
 
 SELECT name, area FROM cities WHERE name NOT IN ('Delhi') or area > 6000;
+
+/* Use WHERE filtering and mathematical operations together */
+
+SELECT name, population FROM cities WHERE population / area > 5000;
+
+/* Updating data in the table */
+
+UPDATE cities SET population= 45000000 WHERE name = 'Tokyo';
+
+/* Delete row from table */
+
+DELETE FROM cities WHERE name = 'Tokyo';
