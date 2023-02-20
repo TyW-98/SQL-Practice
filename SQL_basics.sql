@@ -55,3 +55,41 @@ SELECT CONCAT(name,', ', country) AS origin FROM cities;
 /* Add UPPER function to Uppercase country */
 
 SELECT CONCAT(name, ', ', UPPER(country)) AS origin FROM cities;
+
+/* Filter data where the area column is greater than 4000 */
+
+SELECT name, area FROM cities WHERE area > 4000; 
+
+/* Order in query reads the line above: FROM cities -> WHERE area > 4000 -> SELECT name,area */
+
+/* Can also filter by defining the column's value */
+
+SELECT name, area FROM cities WHERE country = 'Japan';
+
+/* Not equals to the value defined */
+
+SELECT name, area FROM cities WHERE country != 'Japan';
+
+/* Same function as the line above (<> = !=))*/
+
+SELECT name, area FROM cities WHERE country <> 'Japan';
+
+/* Using BETWEEN to filter data */
+
+SELECT name, area FROM cities WHERE area BETWEEN 2000 AND 4000;
+
+/* Check if value in a list */
+
+SELECT name, area FROM cities WHERE name IN ('Delhi','Tokyo');
+
+/* Check if value not in a list */
+
+SELECT name, area FROM cities WHERE name NOT IN ('Delhi','Tokyo');
+
+/* Multiple condition filtering both conditions must be true */
+
+SELECT name, area FROM cities WHERE name NOT IN ('Delhi') AND area > 6000;
+
+/* Multiple condition filtering, only one condition must be true */
+
+SELECT name, area FROM cities WHERE name NOT IN ('Delhi') or area > 6000;
