@@ -105,3 +105,19 @@ UPDATE cities SET population= 45000000 WHERE name = 'Tokyo';
 /* Delete row from table */
 
 DELETE FROM cities WHERE name = 'Tokyo';
+
+/* Creating table with unique ID as Primary key */
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  username VARCHAR(50)
+);
+
+/* Create table with primary and foregin key to reference row based on a column name from another table */
+
+CREATE TABLE food (
+  id SERIAL PRIMARY KEY,
+  food_name VARCHAR(200)
+  user_id INTEGER REFERENCES users(id)
+);
+
