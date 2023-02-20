@@ -113,11 +113,49 @@ CREATE TABLE users(
   username VARCHAR(50)
 );
 
-/* Create table with primary and foregin key to reference row based on a column name from another table */
+/* Create table with primary and foregin key to reference row based on a column name from 
+`  another table */
 
 CREATE TABLE food (
   id SERIAL PRIMARY KEY,
   food_name VARCHAR(200)
   user_id INTEGER REFERENCES users(id)
+);
+
+/* Using JOIN statement to find information from two different table which is 
+   associated with each other. */
+
+/* Find all the information from food table which relates to the first user first
+   before moving on to the second user and so on */ 
+
+SELECT username, food_name FROM food
+JOIN users on users.id = food.user_id;
+
+/* To insert a row without referencing a foreign key using NULL */
+
+INSERT INTO food (food_name, user_id)
+
+Values 
+  ('Pizza',NULL)
+
+/* To delete the whole table */
+
+DROP TABLE food;
+
+
+/* To determine what happen to the foreign key when the user's data has been 
+deleted from user's table can use 'ON DELETE CASCADE' like the example below*/
+
+/* Other 'ON DELETE' options are available are
+  - ON DELETE NO ACTION = Throw an error
+  - ON DELETE RESTRICT = Throw an error
+  - ON DELETE CASCADE = Delete that user's information from other tables as well
+  - ON DELETE SET NULL = Replace the foreign key for that deleted user to as 'NULL'
+  - ON DELETE SET DEFAULT = Replace the foreign key for that deleted user to a specified default value.
+
+CREATE TABLE photos (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(200),
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
