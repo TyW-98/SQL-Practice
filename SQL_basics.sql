@@ -39,3 +39,19 @@ SELECT country, country, country FROM cities;
 SELECT name, population / area AS population_density FROM cities;
 
 SELECT name, population - area AS population_area FROM cities;
+
+/* Concat strings together using || (key above ENTER key) */
+
+SELECT name || country AS country_city FROM cities;
+
+/* To separate two strings with a comma with concatnating them */
+
+SELECT name || ', ' || country AS country_city FROM cities;
+
+/* Using concat function to concat instead */
+
+SELECT CONCAT(name,', ', country) AS origin FROM cities;
+
+/* Add UPPER function to Uppercase country */
+
+SELECT CONCAT(name, ', ', UPPER(country)) AS origin FROM cities;
